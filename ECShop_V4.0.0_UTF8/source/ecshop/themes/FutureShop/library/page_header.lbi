@@ -1,0 +1,92 @@
+		<div class="header">
+		  <div class="logo_help">
+		    <div class="l_h_detail">
+		      <div class="logo">
+		        <a href="../index.php"><img src="../images/logo.gif" alt="logo" /></a>
+		      </div>
+		      <div class="help">
+<style>
+  #csw_img{position:relative;left:-34px;top:5px;
+  width: 20px;height: 20px;
+  border: none;}
+  </style>
+		        <form id="searchForm" name="searchForm" method="get" action="search.php" onSubmit="return checkSearchForm()">
+              <input name="keywords" type="text" id="keyword" value="{$search_keywords|escape}" />
+              <input type="image" src="./images/search.gif" alt="搜索" id="csw_img">
+            </form>
+
+
+            
+		        <ul class="h_nav">
+
+
+{insert_scripts files='transport.js,utils.js'}
+<font id="ECS_MEMBERZONE">{* ECSHOP 提醒您：根据用户id来调用member_info.lbi显示不同的界面 *}
+  {insert name='member_info'} </font>
+
+
+		          
+		          <li class="shopcar"><img src="./images/shoppingcar.png" />{insert name='cart_info'}丨</li>
+		          <li class="no_m_r"><a href="#">帮助中心</a></li>
+		        </ul>
+		      </div>
+		      <div class="clear"></div>
+		    </div>
+		    <div class="clear"></div>
+
+		  </div>
+		  <div class="FS_nav">
+		    <div class="nav_list">
+		      <div class="select_goods">
+		        <p><img src="./images/goods_all.png" />所有商品分类</p>
+		        <div class="select_list">
+		          <ul>
+                 <!--{foreach from=$categories item=cat}-->
+		            <li>
+                  <a href="{$cat.url}">{$cat.name|escape:html}<span>&gt;</span></a>
+                   <!--{if $cat.cat_id }-->
+		              <ul>
+                    <!--{foreach from=$cat.cat_id item=child}-->
+                    <li><a href="{$child.url}"><span>&lt;</span>{$child.name|escape:html}</a></li>
+
+                    <!--{if $child.cat_id }-->
+                    <ul>
+                       <!--{foreach from=$child.cat_id item=childer}-->
+                    <li><a href="{$childer.url}"><span>&lt;</span>{$childer.name|escape:html}</a></li>
+                     <!--{/foreach}-->
+                    </ul>
+                     <!-- {/if} -->
+                    <!--{/foreach}-->
+                    
+                  </ul>
+                    <!-- {/if} -->
+		            </li>
+                  <!--{/foreach}-->
+		          </ul>
+		        </div>
+          </div>
+
+		      <ul>
+		        <li><a href="../index.php" {if $navigator_list.config.index eq 1} style="background: #222" {/if}
+		            >{$lang.home}</a></li>
+		        <!-- {foreach name=nav_middle_list from=$navigator_list.middle item=nav} -->
+		        <!-- {if $smarty.foreach.nav_middle_list.last}-->
+		        <li><a href="{$nav.url}" <!-- {if $nav.opennew eq 1} -->
+		            target="_blank"
+		            <!-- {/if} -->
+		            >{$nav.name}</a></li>
+		        <!-- {else} -->
+		        <li><a href="{$nav.url}" <!-- {if $nav.opennew eq 1} -->
+		            target="_blank"
+		            <!-- {/if} -->
+		            >{$nav.name}</a></li>
+		        <!-- {/if} -->
+		        <!-- {if $nav.active eq 1} -->
+		        <!-- {/if} -->
+		        <!-- {/foreach} -->
+		      </ul>
+		    </div>
+		  </div>
+
+
+		</div>

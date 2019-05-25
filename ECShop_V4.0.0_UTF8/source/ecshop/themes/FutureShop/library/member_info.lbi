@@ -1,0 +1,23 @@
+{if $user_info}
+<li id="u_center" class="u_center"><a href="#">{$user_info.username}<img id="select" src="./images/select.gif" /></a>丨
+<ul id="user_c" class="user_c">
+    <li><a href="user.php">{$lang.user_center}</a></li>
+    <li><a href="#">用户评价</a></li>
+    <li><a href="#">我的留言</a></li>
+    <li><a href="#">我的收藏</a></li>
+    <li><a href="#">资金管理</a></li>
+    <li class="user.php?act=logout"><a href="user.php?act=logout">{$lang.user_logout}</a></li>
+</ul>
+</li>
+<li>
+    <a href="#">我的订单</a>丨
+</li>
+{else}
+<li>
+    <a href="user.php">请登录</a>
+    <a href="user.php?act=register">免费注册</a>丨
+</li>
+{/if}
+
+
+

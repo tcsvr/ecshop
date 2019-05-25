@@ -1,0 +1,12 @@
+        			<ul>
+                <!--{foreach from=$cat_goods item=goods key=k}-->
+        			  <li class="{if $k%3 eq 2}no_m_r{/if}">
+        			    <p class="new"><span>新品</span></p>
+        			    <p class="pro_img"><a href="{$goods.url}"><img src="{$goods.thumb}"
+        			          alt="{$goods.name|escape:html}" /></a></p>
+        			    <p>{$goods.short_name|escape:html}</p>
+        			    <p class="evaluate"><img src="./images/star_05.png" /><i>(64)</i><span>{$goods.shop_price}</span></p>
+        			  </li>
+                <!--{/foreach}-->
+        			</ul>
+
